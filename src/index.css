@@ -1,13 +1,28 @@
 body {
+  background-color: #191A19;
+  color: #4E9F3D;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.addGig_button {
+  background-color: #D8E9A8;
+  border: none;
+  border-radius: 12px;
+  color: #191A19;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+}
+
+.addGig_form {
+  background-color: #4E9F3D;
+  padding: 12px;
+}
+
+input, select {
+  padding: 4px;
+}
+
+label {
+  color: #191A19;
 }
