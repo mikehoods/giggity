@@ -1,0 +1,6 @@
+[
+    {"date":"2022-05-01","start":"08:30","finish":"12:15","company":"Qwick","position":"Banquet Server","hourly":"30","flat":null,"tips":"25","taxed":"on","notes":"This was a cool shift!!!","total":145},
+    {"date":"2022-05-07","start":"02:10","finish":"7:30","company":"Qwick","position":"Event Labor","hourly":"20","flat":null,"tips":"0","taxed":"off","notes":"Meh","total":100},
+    {"date":"2022-05-11","start":"06:40","finish":"11:45","company":"Qwick","position":"Bartender","hourly":"25","flat":null,"tips":"15","taxed":"on","notes":"I'm so tired","total":85},
+    {"date":"2022-05-21","start":"09:10","finish":"13:45","company":"Qwick","position":"Concessions","hourly":null,"flat":120,"tips":"15","taxed":"on","notes":"I'm so tired","total":135}
+]

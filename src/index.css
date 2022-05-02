@@ -1,28 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 body {
   background-color: #191A19;
   color: #4E9F3D;
+  font-family: 'Source Code Pro', monospace;
   margin: 0;
 }
 
+.appName {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 4px;
+}
+
+.addGig_container {
+  background-color: #4E9F3D;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 12px;
+  width: 700px;
+}
+
+.addGig_form {
+  padding: 12px;
+  /* text-align: center;   */
+}
+
+.addGig_div {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+input, select, textarea {
+  border-radius: 4px;
+  border: 1px solid #191A19;
+  font-family: 'Source Code Pro', monospace;
+  padding: 6px;
+}
+
+label {
+  color: #191A19;
+}
+
 .addGig_button {
-  background-color: #D8E9A8;
+  background-color: #1E5128;
   border: none;
   border-radius: 12px;
-  color: #191A19;
+  color: #EEEEEE;
+  font-weight: 900;
   padding: 10px;
   text-align: center;
   width: 100px;
 }
 
-.addGig_form {
-  background-color: #4E9F3D;
-  padding: 12px;
+.recentGigs {
+  background-color: #1E5128;
 }
 
-input, select {
-  padding: 4px;
+.gigs_container {
+  background-color: #EEEEEE;
 }
 
-label {
-  color: #191A19;
+.gigDetails {
+  display: flex;
+  justify-content: space-evenly;
 }
