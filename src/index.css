@@ -46,6 +46,10 @@ label {
   color: #191A19;
 }
 
+.number_input {
+  text-align: right;
+}
+
 .addGig_button {
   background-color: #1E5128;
   border: none;

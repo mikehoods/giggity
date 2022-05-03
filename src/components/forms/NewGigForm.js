@@ -12,14 +12,28 @@ function NewGigForm({ handleShowForm }) {
     const [taxed, setTaxed] = useState(null);
     const [notes, setNotes] = useState(null);
     const [total, setTotal] = useState(0);
+    const [hoursWorked, setHoursWorked] = useState(null);
 
-    const hourlyInput = <input onChange={(e) => setHourly(e.target.value)} type="number" placeholder="Hourly Wage" />
-    const flatInput = <input onChange={(e) => setFlat(e.target.value)} type="number" placeholder="Shift Pay"/>
+    const hourlyInput = <input className="number_input" onChange={(e) => setHourly(e.target.value)} type="number" placeholder="Hourly Wage" />
+    const flatInput = <input className="number_input" onChange={(e) => setFlat(e.target.value)} type="number" placeholder="Shift Pay"/>
     
     const [payType, setPayType] = useState(hourlyInput);
 
-
-    
+    const findHoursWorked = () => {
+        const startHour = parseInt(start.slice(0,2))
+        const startMinute = parseInt(start.slice(3))
+        const finishHour = parseInt(finish.slice(0,2))
+        const finishMinute = parseInt(finish.slice(3))
+        console.log(startMinute, finishMinute)
+        let totalTime
+        if (startMinute > finishMinute) {
+            totalTime = (finishHour - startHour - 1) + ((finishMinute + (60 - startMinute)) / 60)
+        } else {
+            totalTime = (finishHour - startHour) + ((finishMinute - startMinute) / 60)
+        }
+        console.log(totalTime)
+        setHoursWorked(totalTime)
+    }  
 
     const handlePayType = (e) => {
         if (e.target.value === "hourly") {
@@ -29,10 +43,10 @@ function NewGigForm({ handleShowForm }) {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         handleShowForm()
-        const gig = { date, start, finish, company, position, hourly, flat, tips, taxed, notes, total}
+        const gig = { date, start, finish, company, position, hourly, hoursWorked, flat, tips, taxed, notes, total}
         const newData = JSON.stringify(gig)
         console.log(newData)
     }
@@ -41,6 +55,10 @@ function NewGigForm({ handleShowForm }) {
         if (flat) setTotal(flat + tips)
         if (hourly) setTotal(parseFloat(hourly * 5) + parseFloat(tips))
     }, [tips, flat, hourly])
+
+    useEffect(() => {
+        if (start && finish) findHoursWorked()
+    }, [start, finish])
 
     return (
         <div className="addGig_container">
@@ -66,14 +84,17 @@ function NewGigForm({ handleShowForm }) {
                             <option value="flat">Flat Rate</option>
                         </select>
                         {payType}
-                        <input onChange={(e) => setTips(e.target.value)} type="number" placeholder="Tips" />
+                        <input className="number_input" onChange={(e) => setTips(e.target.value)} type="number" placeholder="Tips" />
                     </div>
                     <div className="addGig_div">
                         <div>
                             <input onChange={(e) => setTaxed(e.target.value)} type="checkbox" name="taxed" />
                             <label htmlFor="taxed">Taxed?</label>
                         </div>
-                        <input type="number" placeholder="Total Earnings" value={total} />
+                        <div>
+                            <label htmlFor="total">Total Earnings </label>
+                            <input className="number_input" type="number" name="total" placeholder="Total Earnings" readOnly value={total} />
+                        </div>
                     </div>
                     <div className="addGig_div">
                         <textarea onChange={(e) => setNotes(e.target.value)} name="notes" placeholder="Notes" rows="4" cols="70" />
