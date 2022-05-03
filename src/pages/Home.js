@@ -11,8 +11,8 @@ function Home() {
     return (
         <div>
             <h3 className="appName">Giggity</h3>
-            <p>Track all your gig earnings in one place</p>
-            <div>
+            <p className="appMotto">Track all your gig earnings in one place</p>
+            <div className="YTD_div">
                 <p>YTD Earnings: $0.00</p>
             </div>
             <div>

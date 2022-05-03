@@ -24,14 +24,12 @@ function NewGigForm({ handleShowForm }) {
         const startMinute = parseInt(start.slice(3))
         const finishHour = parseInt(finish.slice(0,2))
         const finishMinute = parseInt(finish.slice(3))
-        console.log(startMinute, finishMinute)
         let totalTime
         if (startMinute > finishMinute) {
             totalTime = (finishHour - startHour - 1) + ((finishMinute + (60 - startMinute)) / 60)
         } else {
             totalTime = (finishHour - startHour) + ((finishMinute - startMinute) / 60)
         }
-        console.log(totalTime)
         setHoursWorked(totalTime)
     }  
 
@@ -52,9 +50,9 @@ function NewGigForm({ handleShowForm }) {
     }
 
     useEffect(() => {
-        if (flat) setTotal(flat + tips)
-        if (hourly) setTotal(parseFloat(hourly * 5) + parseFloat(tips))
-    }, [tips, flat, hourly])
+        if (flat) setTotal(parseFloat(flat) + parseFloat(tips))
+        if (hourly && hoursWorked) setTotal(parseFloat(hourly * hoursWorked) + parseFloat(tips))
+    }, [tips, flat, hourly, hoursWorked])
 
     useEffect(() => {
         if (start && finish) findHoursWorked()

@@ -11,7 +11,18 @@ body {
   font-size: 3rem;
   font-weight: 300;
   margin: 0;
-  padding: 4px;
+  padding: 4px 4px 0 4px;
+}
+
+.appMotto {
+  margin: 0;
+  padding-left: 6px;
+}
+
+.YTD_div {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 12px;
 }
 
 .addGig_container {
@@ -56,6 +67,7 @@ label {
   border-radius: 12px;
   color: #EEEEEE;
   font-weight: 900;
+  margin: 10px 0;
   padding: 10px;
   text-align: center;
   width: 100px;
@@ -65,11 +77,27 @@ label {
   background-color: #1E5128;
 }
 
+.recent_header {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 12px;
+}
+
 .gigs_container {
-  background-color: #EEEEEE;
+  background-color: #D8E9A8;
+  padding: 12px;
+  
 }
 
 .gigDetails {
+  background-color: #EEEEEE;
+  border-left: 10px solid #4E9F3D;
+  border-right: 10px solid #4E9F3D;
+  border-radius: 4px;
+  color: #191A19;
   display: flex;
-  justify-content: space-evenly;
+  font-weight: 300;
+  justify-content: space-between;
+  margin: 6px 12px;
+  padding: 0 10px;
 }
