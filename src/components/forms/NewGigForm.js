@@ -30,7 +30,7 @@ function NewGigForm({ handleShowForm }) {
         } else {
             totalTime = (finishHour - startHour) + ((finishMinute - startMinute) / 60)
         }
-        setHoursWorked(totalTime)
+        setHoursWorked(Math.round((totalTime + Number.EPSILON) * 100) / 100)
     }  
 
     const handlePayType = (e) => {
@@ -58,6 +58,10 @@ function NewGigForm({ handleShowForm }) {
         if (start && finish) findHoursWorked()
     }, [start, finish])
 
+    useEffect(() => {
+        if (date) console.log(date)
+    }, [date])
+
     return (
         <div className="addGig_container">
             <form className="addGig_form" onSubmit={handleSubmit}>
@@ -82,7 +86,7 @@ function NewGigForm({ handleShowForm }) {
                             <option value="flat">Flat Rate</option>
                         </select>
                         {payType}
-                        <input className="number_input" onChange={(e) => setTips(e.target.value)} type="number" placeholder="Tips" />
+                        <input className="number_input" onChange={(e) => setTips(e.target.value)} type="text" placeholder="Tips" />
                     </div>
                     <div className="addGig_div">
                         <div>

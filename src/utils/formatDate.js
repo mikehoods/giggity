@@ -1,8 +1,8 @@
 const formatDate = (date) => {
-    date = new Date(date);
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear().toString().slice(2);
+    const dateArray = date.split("-")
+    const day = dateArray[2]
+    const month = dateArray[1]
+    const year = dateArray[0].slice(2)
     return `${month}/${day}/${year}`
 }
 
